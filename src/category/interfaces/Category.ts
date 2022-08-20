@@ -1,7 +1,7 @@
 import { Document } from 'mongoose';
 
 export class Category extends Document {
-  id?: number;
+  _id?: string;
   name: string;
   description?: string;
 }

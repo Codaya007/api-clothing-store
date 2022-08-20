@@ -9,7 +9,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 
 @Module({
   imports: [
-    CategoryModule,
     ConfigModule.forRoot(),
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
@@ -18,6 +17,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         uri: config.get<string>('MONGODB_URI'), // Loaded from .ENV
       }),
     }),
+    CategoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
