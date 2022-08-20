@@ -1,6 +1,6 @@
 import { Schema } from 'mongoose';
 
-export const TaskSchema = new Schema({
+export const CategorySchema = new Schema({
   name: {
     type: String,
     required: true,
