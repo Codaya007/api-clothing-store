@@ -6,6 +6,7 @@ import { CategoryModule } from './category/category.module';
 import { MongooseModule } from '@nestjs/mongoose';
 // Para poder usar variables de entorno
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { ProductModule } from './product/product.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
         uri: config.get<string>('MONGODB_URI'), // Loaded from .ENV
       }),
     }),
+    ProductModule,
   ],
   controllers: [AppController],
   providers: [AppService],
