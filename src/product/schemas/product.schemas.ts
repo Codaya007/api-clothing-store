@@ -27,6 +27,10 @@ export const ProductSchema = new Schema({
     type: Number,
     default: 0,
   },
+  onSale: {
+    type: Boolean,
+    default: true,
+  },
   subcategory: {
     type: String,
     required: true,
