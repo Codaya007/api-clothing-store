@@ -1,9 +1,8 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { CategoryModule } from './category/category.module';
 // Para conectarme a mongodb
 import { MongooseModule } from '@nestjs/mongoose';
+
+import { CategoryModule } from './category/category.module';
 // Para poder usar variables de entorno
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { ProductModule } from './product/product.module';
@@ -21,7 +20,7 @@ import { ProductModule } from './product/product.module';
     }),
     ProductModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}
