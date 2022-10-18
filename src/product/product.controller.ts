@@ -12,15 +12,16 @@ import {
 } from '@nestjs/common';
 import { ProductService } from './product.service';
 import { CreateProductDto } from './dto/create-product.dto';
+import { Product } from './interfaces/Product';
 
 @Controller('products')
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
   @Get()
-  async getProducts(@Res() res) {
-    const product = await this.productService.getProducts();
-    return res.status(HttpStatus.OK).json(product);
+  async getProducts(@Res() res): Promise<Product[]> {
+    const products = await this.productService.getProducts();
+    return res.status(HttpStatus.OK).json(products);
   }
 
   @Get(':id')
@@ -40,7 +41,7 @@ export class ProductController {
   }
 
   @Delete('/delete')
-  async deleteteProduct(@Res() res, @Query('id') id: string) {
+  async deleteteProduct(@Res() res, @Query('id') id: string): Promise<Product> {
     console.log(id);
     const deletedProduct = await this.productService.deleteProduct(id);
     if (!deletedProduct) throw new Error('This product dont exist');
